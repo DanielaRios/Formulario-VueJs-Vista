@@ -5,10 +5,18 @@ import Anio from './components/anio.vue'
 import LabelInput from './components/labelInput.vue';
 import Pais from './components/pais.vue';
 import Ofertas from './components/ofertas.vue';
+
+const imprimirFormulario = (e) =>{
+  e.preventDefault(); // evitar recargar la pagina
+  const formulario = new FormData(e.target);
+  formulario.forEach((value, key) => {
+    console.log(key + ": " + value);
+  });
+}
 </script>
 
 <template>
-  <form>
+  <form @submit="imprimirFormulario">
     <header>
       <h1>RELIA</h1>
       <h2>Formulario de registro</h2>
@@ -64,7 +72,7 @@ import Ofertas from './components/ofertas.vue';
       </div>
     </fieldset>
     <div class="contenedor-boton">
-      <button type="button" class="boton">Crear cuenta</button>
+      <button type="submit" class="boton">Crear cuenta</button>
     </div>
   </form>
 </template>
