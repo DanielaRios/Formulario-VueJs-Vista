@@ -8,7 +8,8 @@ import Ofertas from './components/ofertas.vue';
 
 const imprimirFormulario = (e) =>{
   e.preventDefault(); // evitar recargar la pagina
-  const formulario = new FormData(e.target);
+  const formulario = new FormData(e.target); // crea un objeto FormData con los datos del formulario
+  // Recorre los datos del formulario e imprime cada par clave-valor
   formulario.forEach((value, key) => {
     console.log(key + ": " + value);
   });
